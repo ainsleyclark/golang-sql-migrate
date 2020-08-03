@@ -28,7 +28,7 @@ __Example__
 ```
 m, err := migrate.NewInstance(
     db.DB,
-    "go_cms",
+    "mydatabase",
     "/Users/me/code/migrations",
     false,
 )
