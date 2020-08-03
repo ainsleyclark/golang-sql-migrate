@@ -1,7 +1,6 @@
 package migrate
 
 import (
-	"cms/core/env"
 	"database/sql"
 	"fmt"
 	"strconv"
@@ -22,7 +21,7 @@ func (m *Migrate) checkDatabaseExists(databaseName string) error {
 	_, err := m.db.Exec("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = ?", databaseName)
 
 	if err != nil {
-		return fmt.Errorf("database not found - %s", env.Map["DB_DATABASE"])
+		return fmt.Errorf("database not found - %s", databaseName)
 	}
 
 	return nil

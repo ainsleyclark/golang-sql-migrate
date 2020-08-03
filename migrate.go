@@ -37,7 +37,7 @@ func newInstance() *Migrate {
 // Takes in a type of sql DB, database name and the migration path. You are,
 // responsible for closing down the underlying source and database client
 // if necessary.
-func NewMigrate(db *sql.DB, databaseName string, migrationPath string, verbose bool) (*Migrate, error) {
+func NewInstance(db *sql.DB, databaseName string, migrationPath string, verbose bool) (*Migrate, error) {
 	m := newInstance()
 
 	// Ping database.
