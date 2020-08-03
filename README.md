@@ -10,13 +10,15 @@ golang-sql-migrate is extremely lightweight and efficient. has only 1 dependency
 * Drop
 * Drop and Create
 * Make
-
+<br/>
 
 ## Install
 `` go get github.com/ainsleyclark/golang-sql-migrate``
 
+<br/>
+
 ## Getting Started
-To use simply create a new migration instance and pass in the following:
+To use simply create a new migration instance and pass in the following arguments. This command returns a new instance of migrate, which you are then able to call the functions on below.
 
 | Parameter | Type | Example | Description |
 |-----------|------|---------|-------------|
@@ -35,12 +37,16 @@ m, err := migrate.NewInstance(
 )
 ```
 
-This command returns a new instance of migrate, which you are then able to call the functions on below.
+<br/>
 
 ## Functions
 
+<br/>
+
 ## Suggestions
 Please feel free to make any suggestions to the package.
+
+<br/>
 
 ## Contributing
 We welcome contributors, but please read the contributing document before making a pull request. You can also browse the issues or help wanted section found above.
