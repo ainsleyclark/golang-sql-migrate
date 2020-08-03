@@ -10,7 +10,6 @@ golang-sql-migrate is extremely lightweight and efficient. has only 1 dependency
 * Drop
 * Drop and Create
 * Make
-<br/>
 
 ## Install
 `` go get github.com/ainsleyclark/golang-sql-migrate``
