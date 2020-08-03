@@ -2,7 +2,7 @@
 
 __A simple yet versatile mysql migrate library package for golang__
 
-golang-sql-migrate is extremely lightweight and efficient. has only 1 dependency for verbose logging which can be turned off in the migrate constructor. The following commands can utilised:
+golang-sql-migrate is extremely lightweight and efficient. It has only 1 dependency for verbose logging which can be turned off in the migrate constructor. The following commands can be utilised:
 * Up
 * Down
 * Rollback
@@ -15,7 +15,14 @@ golang-sql-migrate is extremely lightweight and efficient. has only 1 dependency
 `` go get github.com/ainsleyclark/golang-sql-migrate``
 
 ## Getting Started
-To use simply create a new migration instance and pass in the following arguments. This command returns a new instance of migrate, which you are then able to call the functions on below.
+To use, first import the migration instance.
+Then simply create a new migration instance and pass in the following arguments. This command returns a new instance of migrate, which you are then able to call the functions on below.
+
+```
+import (
+	"github.com/ainsleyclark/golang-sql-migrate"
+)
+```
 
 | Parameter | Type | Example | Description |
 |-----------|------|---------|-------------|
@@ -49,10 +56,10 @@ Rollback will get the latest version in the database and execute any files that 
 Fresh will drop the whole database, create it and run all the pending migrations.
 
 ### Drop and Create
-Drop & Create will drop the whole database and create it again. Note it is not the same as fresh, as fresh that will run all the migrations over again.
+Drop & Create will drop the whole database and create it again. Note it is not the same as fresh, as fresh will run all the up migrations over again.
 
 ### Make
-Make will create up and down sql files based on the migration path
+Make will create up and down sql files based on the migration path.
 
 ## Todo:
 Create stub files for the make command.
