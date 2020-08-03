@@ -11,22 +11,22 @@ import (
 )
 
 type Migrate struct {
-	db 				*sql.DB
-	databaseName 	string
-	migrationPath 	string
-	version		 	int
-	verbose 		bool
+	db            *sql.DB
+	databaseName  string
+	migrationPath string
+	version       int
+	verbose       bool
 }
 
 type migration struct {
-	id				int		`db:"id"`
-	name			string	`db:"migration"`
-	version			int		`db:"batch"`
-	createdAt 		string
-	pathUp			string
-	pathDown		string
-	fail 			bool
-	hasMigrated		bool
+	id          int    `db:"id"`
+	name        string `db:"migration"`
+	version     int    `db:"batch"`
+	createdAt   string
+	pathUp      string
+	pathDown    string
+	fail        bool
+	hasMigrated bool
 }
 
 func newInstance() *Migrate {
@@ -75,7 +75,7 @@ func NewInstance(db *sql.DB, databaseName string, migrationPath string, verbose 
 
 	// Set verbose
 	m.verbose = verbose
-	
+
 	return m, nil
 }
 
@@ -186,7 +186,6 @@ func (m *Migrate) Up() error {
 	return nil
 }
 
-
 func (m *Migrate) Down() error {
 	if _, err := m.db.Exec("DROP DATABASE " + m.databaseName + ";"); err != nil {
 		return fmt.Errorf("cannot drop database %v - %w", m.databaseName, err)
@@ -262,7 +261,6 @@ func (m *Migrate) Rollback() error {
 
 	return nil
 }
-
 
 // Fresh will drop the whole database, create it and run all the
 // pending migrations.
@@ -352,12 +350,12 @@ func (m *Migrate) getMigrateFiles() (map[string]*migration, error) {
 
 		if _, err := migrationsFound[name]; !err {
 			migrationsFound[name] = &migration{
-				name: name,
-				version: version + 1,
-				createdAt: createdAt,
-				pathUp: m.migrationPath + "/" + name + ".up.sql",
-				pathDown: m.migrationPath + "/" + name + ".down.sql",
-				fail: false,
+				name:        name,
+				version:     version + 1,
+				createdAt:   createdAt,
+				pathUp:      m.migrationPath + "/" + name + ".up.sql",
+				pathDown:    m.migrationPath + "/" + name + ".down.sql",
+				fail:        false,
 				hasMigrated: false,
 			}
 		}
@@ -386,11 +384,11 @@ func (m *Migrate) getMigrateFiles() (map[string]*migration, error) {
 // on the up boolean passed.
 func (m *Migrate) sort(files []os.FileInfo, up bool) []os.FileInfo {
 	if up {
-		sort.Slice(files, func(i,j int) bool{
+		sort.Slice(files, func(i, j int) bool {
 			return files[i].Name() > files[j].Name()
 		})
 	} else {
-		sort.Slice(files, func(i,j int) bool{
+		sort.Slice(files, func(i, j int) bool {
 			return files[i].Name() < files[j].Name()
 		})
 	}

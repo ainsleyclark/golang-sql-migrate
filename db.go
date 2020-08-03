@@ -52,7 +52,7 @@ func (m *Migrate) createDatabase() error {
 // on result.
 func (m *Migrate) tableExists() bool {
 	var q string
-	err :=  m.db.QueryRow("(SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = 'migrations' LIMIT 1);", m.databaseName).Scan(&q)
+	err := m.db.QueryRow("(SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = 'migrations' LIMIT 1);", m.databaseName).Scan(&q)
 
 	if err == sql.ErrNoRows {
 		return false
@@ -122,9 +122,8 @@ func (m *Migrate) delete(name string) error {
 	return nil
 }
 
-
 // Get the database file name as stored, removes extensions and up/down.
-func (m*Migrate) getDBFileName(fileName string) string {
+func (m *Migrate) getDBFileName(fileName string) string {
 	fileName = strings.Replace(fileName, ".up.sql", "", -1)
 	fileName = strings.Replace(fileName, ".down.sql", "", -1)
 
