@@ -186,7 +186,7 @@ func (m *Migrate) Up() error {
 	return nil
 }
 
-// Down will drop the database entirely.
+
 func (m *Migrate) Down() error {
 	if _, err := m.db.Exec("DROP DATABASE " + m.databaseName + ";"); err != nil {
 		return fmt.Errorf("cannot drop database %v - %w", m.databaseName, err)
@@ -264,7 +264,7 @@ func (m *Migrate) Rollback() error {
 }
 
 
-// Fresh will drop the whole database, cretae it and run all the
+// Fresh will drop the whole database, create it and run all the
 // pending migrations.
 func (m *Migrate) Fresh() error {
 	if err := m.DropAndCreate(); err != nil {
@@ -301,7 +301,7 @@ func (m *Migrate) DropAndCreate() error {
 	return nil
 }
 
-// Make migration
+// Make will create up and down sql files based on the migration path
 func (m *Migrate) Make(fileName string) error {
 	filePath := m.migrationPath
 
