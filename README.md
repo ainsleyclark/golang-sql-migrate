@@ -29,7 +29,7 @@ __Example__
 m, err := migrate.NewInstance(
     db.DB,
     "go_cms",
-    "/Users/ainsley/Desktop/Reddico/apis/cms/api/database/migrations/",
+    "/Users/me/code/migrations",
     false,
 )
 ```
@@ -59,8 +59,6 @@ Create stub files for the make command.
 
 ## Suggestions
 Please feel free to make any suggestions to the package.
-
-<br/>
 
 ## Contributing
 We welcome contributors, but please read the contributing document before making a pull request. You can also browse the issues or help wanted section found above.
