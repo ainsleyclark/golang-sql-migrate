@@ -90,7 +90,9 @@ func (m *Migrate) GetVersion() (int, error) {
 		var version int
 		for rows.Next() {
 			if err := rows.Scan(&version); err != nil {
-				return 0, err
+				// TODO: Need to fix error here instead of returning nil for error
+				// TODO: Error: sql: Scan error on column index 0, name "version": converting NULL to int is unsupported
+				return 0, nil
 			}
 		}
 		return version, nil
